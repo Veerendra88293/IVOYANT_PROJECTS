@@ -1,0 +1,119 @@
+.app-title{
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-bottom: 3rem;
+}
+input[type="text"]{
+ text-align: center;
+ width: 500px;
+  font-size: 1rem;
+   border-radius: 10px;
+
+}
+button{
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 20px;
+  color: white;
+  background-color: #007BFF;
+}
+button:hover{
+  background-color: #0056b3;
+} 
+.todo-input-section{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  gap: 2rem;
+}
+.todo-lists-section{
+  display: flex;
+  flex-direction: row;
+ margin: 40px;
+  gap: 3rem;
+  padding: 20px;
+  align-items: flex-start;
+}
+.card1{
+  border: 1px solid #ccc;
+  border-radius: 10px;
+ 
+  width: 50%;
+  background-color: #f9f9f9;
+}
+.card2{
+  border: 1px solid #ccc;
+  border-radius: 10px;
+ 
+  width: 50%;
+  background-color: #f9f9f9;
+
+}
+.pendingHeading{
+  text-align: center;
+  margin-top: -3px;
+  font-size: 1.5rem;
+  background-color: #a7caf0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding-top: 6px;
+  padding-bottom: 8px;
+}
+.completedHeading{
+  text-align: center;
+  margin-top: -3px;
+  font-size: 1.5rem;
+  background-color: #a7caf0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+   padding-top: 6px;
+  padding-bottom: 8px;
+}
+li{
+font-size: large;
+
+}
+.AllList{
+  background-color: #e2eef5;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  
+  margin: 10px;
+  margin-left: -30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); ;
+}
+.pointer{
+  cursor: pointer;
+}
+.divv{
+margin-top: 16px;
+display: flex;
+gap: 10px;
+}
+.inputt{
+  margin-bottom:20px ;
+}
+h1{
+background-color:#7697f0;
+padding: 10px;
+}
+.p-button {
+  display: inline-block;
+  padding: 6px 12px;
+  background:grey;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+ 
+  
+}
+
+.p-button:hover {
+  background: rgb(177, 176, 176);
+}
+
+
