@@ -1,18 +1,20 @@
-
-import Movies_List from '../Movies_List'
-import Banner from '../banner'
-
+import Movies_List from "../Movies_List";
+import Banner from "../banner";
+import { Typography, theme } from "antd";
+const { Title } = Typography;
 function Home() {
+  const { token } = theme.useToken();
   return (
-    <div>
-      <Banner/>
-      <div className='bg-black'>
-        <h1 className='text-2xl font-bold text-center p-4' >Trending Movies</h1>
-        <Movies_List/>
-      </div> 
+    <div style={{ background: token.colorBgBase, minHeight: "100vh" }}>
+      <Banner />
+      <div>
+        <Title level={3} style={{ textAlign: "center", padding: "10px" }}>
+          Trending Movies
+        </Title>
+        <Movies_List />
+      </div>
     </div>
-  )
+  );
 }
 
 export default Home;
-
