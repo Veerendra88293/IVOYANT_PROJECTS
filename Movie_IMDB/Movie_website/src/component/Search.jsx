@@ -175,6 +175,9 @@ function Search_List() {
             Prev
           </Button>
           <Button
+            disabled={
+               page >= searchResults.total_pages
+            }
             onClick={() => setPage((p) => p + 1)}
             className="px-4 py-2 bg-gray-300 rounded"
             type="primary"
@@ -183,6 +186,7 @@ function Search_List() {
           </Button>
         </Flex>
       )}
+      
     </div>
   );
 }

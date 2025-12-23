@@ -1,0 +1,28 @@
+.movie-box {
+  width: 240px;
+  height: 300px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.movie-box:hover {
+  transform: scale(1.06);
+}
+
+.movie-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px !important;
+  background-size: cover !important;
+  background-position: center !important;
+  cursor: pointer;
+}
+
+.wishlist-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 5;
+}

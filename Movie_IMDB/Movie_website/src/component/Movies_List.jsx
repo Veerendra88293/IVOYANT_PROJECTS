@@ -6,7 +6,7 @@ import {
   removeFromWatchList,
 } from "../store/slice/watchlistSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { Row, Col, Skeleton, Typography, Button } from "antd";
+import { Row, Col, Skeleton, Typography, Button ,Card,message} from "antd";
 
 const { Text } = Typography;
 
@@ -38,20 +38,21 @@ function Movies_List() {
     e.preventDefault();
     e.stopPropagation();
     dispatch(removeFromWatchList(id));
+    message.info("Removed from Watchlist");
   };
 
   const HandleAdd = (e, movie) => {
     e.preventDefault();
     e.stopPropagation();
     dispatch(addToWatchList(movie));
+    message.success("Added to Watchlist");
   };
 
   return (
-    <div style={{ padding: 24 }}>
+     <div style={{ padding: 24 }}>
       <Row gutter={[24, 24]} justify="center">
         {data?.results?.map((Movie) => {
           const isAdded = WatchListdata.some((obj) => obj.id === Movie.id);
-
           return (
             <Col
               key={Movie.id}
@@ -59,27 +60,23 @@ function Movies_List() {
               style={{ display: "flex", justifyContent: "center" }}
             >
               <Link state={{ movie: Movie }} to={`movie/${Movie.id}`}>
-                <div
-                  style={{
-                    width: 240,
-                    height: 300,
-                    borderRadius: 10,
-                    backgroundImage: `url(https://image.tmdb.org/t/p/original/${Movie.poster_path})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    cursor: "pointer",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    onClick={(e) =>
-                      isAdded ? HandleRemove(e, Movie.id) : HandleAdd(e, Movie)
-                    }
+                <div className="movie-box">
+                  <Card
+                    hoverable
+                    className="movie-card"
                     style={{
-                      position: "absolute",
-                      top: 8,
-                      right: 8,
-                      fontSize: 20,
+                      backgroundImage: `url(https://image.tmdb.org/t/p/original/${Movie.poster_path})`,
+                    }}
+                  />
+
+                  <div
+                    className="wishlist-btn"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      isAdded
+                        ? HandleRemove(e, Movie.id)
+                        : HandleAdd(e, Movie);
                     }}
                   >
                     {isAdded ? "❌" : "❤️"}
@@ -91,9 +88,10 @@ function Movies_List() {
         })}
       </Row>
 
+      {/* Pagination buttons */}
       <div
-        className="flex justify-center gap-4 mt-6 "
-        style={{ textAlign: "center", padding: 10 }}
+        className="flex justify-center gap-4 mt-11"
+        style={{ textAlign: "center", padding: 10, marginTop: 24 }}
       >
         <Button
           type="primary"
@@ -103,7 +101,12 @@ function Movies_List() {
         >
           Prev
         </Button>
-        <Button type="primary" onClick={() => setPage((p) => p + 1)}>
+
+        <Button
+          type="primary"
+          onClick={() => setPage((p) => p + 1)}
+          disabled={!data || page >= data.total_pages}
+        >
           Next
         </Button>
       </div>
